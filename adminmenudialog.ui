@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminMenuDialog</class>
+ <widget class="QDialog" name="AdminMenuDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Admin Menu</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPushButton" name="addEditDefectButton">
+     <property name="text">
+      <string>Add/Edit Defect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addEditPriorityButton">
+     <property name="text">
+      <string>Add/Edit Priority of Defect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addProjectButton">
+     <property name="text">
+      <string>Add Project</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="updateDefectStatusButton">
+     <property name="text">
+      <string>Update Status of Defect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="createReportButton">
+     <property name="text">
+      <string>Create Report for Defect Status</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addEditEmployeeButton">
+     <property name="text">
+      <string>Add/Edit Employee</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="assignDefectButton">
+     <property name="text">
+      <string>Assign Defect</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
