@@ -15,16 +15,19 @@ public:
     explicit AddEditDefectMenuDialog(QWidget *parent = nullptr);
     ~AddEditDefectMenuDialog();
 
-signals:
-    void addDefectRequested();
-    void editDefectRequested();
+    bool isAddDefectSelected() const;
+    bool isEditDefectSelected() const;
+
+private:
+    Ui::AddEditDefectMenuDialog *ui;
+    bool addDefectSelected;
+    bool editDefectSelected;
 
 private slots:
     void on_addDefectButton_clicked();
     void on_editDefectButton_clicked();
-
-private:
-    Ui::AddEditDefectMenuDialog *ui;
+    void saveToFile(const QString &fileName);
+    void loadFromFile(const QString &fileName);
 };
 
 #endif // ADDEDITDEFECTMENUDIALOG_H

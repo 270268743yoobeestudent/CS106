@@ -1,5 +1,6 @@
 #include "addemployeedialog.h"
 #include "ui_addemployeedialog.h"
+#include "filemanager.h"
 
 AddEmployeeDialog::AddEmployeeDialog(QWidget *parent) :
     QDialog(parent),
@@ -19,7 +20,12 @@ void AddEmployeeDialog::on_submitButton_clicked()
 {
     QString employeeName = ui->employeeNameLineEdit->text().trimmed();
 
-    emit employeeAdded(employeeName);
-
-    accept(); // Close the dialog
+    FileManager fileManager("employees.txt");
+    if (fileManager.writeToFile("Employee Name: " + employeeName)) {
+        qDebug() << "Employee name saved successfully:" << employeeName;
+        emit employeeAdded(employeeName);
+        accept(); // Close the dialog
+    } else {
+        qDebug() << "Failed to save employee name:" << employeeName;
+    }
 }

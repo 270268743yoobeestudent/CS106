@@ -2,8 +2,7 @@
 #define EMPLOYEEMENUDIALOG_H
 
 #include <QDialog>
-#include "addeditdefectmenu.h"
-#include "addeditprioritydialog.h" // Include AddEditPriorityDialog header
+#include "logindialog.h" // Include LoginDialog if needed
 
 namespace Ui {
 class EmployeeMenuDialog;
@@ -19,12 +18,12 @@ public:
 
 private slots:
     void on_addEditDefectButton_clicked();
-    void on_addEditPriorityButton_clicked(); // Slot for Add/Edit Priority button
+    void on_addEditPriorityButton_clicked();
+    void on_logoutButton_clicked();
 
 private:
     Ui::EmployeeMenuDialog *ui;
-    AddEditDefectMenu *addEditDefectMenu;
-
+    LoginDialog *loginDialog; // Instance of LoginDialog
 };
 
 #endif // EMPLOYEEMENUDIALOG_H

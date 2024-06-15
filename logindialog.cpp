@@ -1,6 +1,6 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
-#include <QDebug>
+#include <QMessageBox>
 
 LoginDialog::LoginDialog(QWidget *parent) :
     QDialog(parent),
@@ -10,6 +10,11 @@ LoginDialog::LoginDialog(QWidget *parent) :
 
     // Connect login button click to slot
     connect(ui->loginButton, &QPushButton::clicked, this, &LoginDialog::on_loginButton_clicked);
+}
+
+LoginDialog::~LoginDialog()
+{
+    delete ui;
 }
 
 void LoginDialog::on_loginButton_clicked()
@@ -24,11 +29,9 @@ void LoginDialog::on_loginButton_clicked()
         emit userLoggedIn(false); // Signal employee login
         accept(); // Close the dialog
     } else {
-        qDebug() << "Invalid username or password!";
+        // Display error message using QMessageBox
+        QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
+        ui->passwordLineEdit->clear(); // Clear password field
+        ui->usernameLineEdit->setFocus(); // Set focus back to username field
     }
-}
-
-LoginDialog::~LoginDialog()
-{
-    delete ui;
 }

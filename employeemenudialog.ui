@@ -28,7 +28,14 @@
      </property>
     </widget>
    </item>
-  </layout>
+   <item>
+    <widget class="QPushButton" name="logoutButton">
+     <property name="text">
+      <string>Logout</string>
+     </property>
+    </widget>
+   </item>
+</layout>
  </widget>
  <resources/>
  <connections/>

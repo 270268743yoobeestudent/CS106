@@ -2,10 +2,9 @@
 #define EDITDEFECTDIALOG_H
 
 #include <QDialog>
-
-namespace Ui {
-class EditDefectDialog;
-}
+#include <QComboBox>
+#include <QLineEdit>
+#include <QPushButton>
 
 class EditDefectDialog : public QDialog
 {
@@ -16,17 +15,19 @@ public:
     ~EditDefectDialog();
 
 signals:
-    void defectEdited(int defectIndex, const QString &defectName, const QString &defectDescription);
-
-public slots:
-    void populateDefectList(const QStringList &defectList);
-    void setDefectDetails(const QString &defectName, const QString &defectDescription);
+    void defectEdited(const QString &newDefectName);
 
 private slots:
-    void on_submitButton_clicked();
+    void onDefectSelected(int index);
+    void submitForm();
 
 private:
-    Ui::EditDefectDialog *ui;
+    void loadDefectNamesFromFile();
+    void populateDefectComboBox(const QStringList &defectNames);
+
+    QComboBox *defectListComboBox;
+    QLineEdit *defectNameLineEdit;
+    QPushButton *submitButton;
 };
 
 #endif // EDITDEFECTDIALOG_H

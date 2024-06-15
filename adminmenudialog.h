@@ -2,7 +2,7 @@
 #define ADMINMENUDIALOG_H
 
 #include <QDialog>
-#include "addeditdefectmenu.h" // Include AddEditDefectMenu header
+#include "addeditdefectmenudialog.h"
 
 namespace Ui {
 class AdminMenuDialog;
@@ -24,10 +24,11 @@ private slots:
     void on_createReportButton_clicked();
     void on_addEditEmployeeButton_clicked();
     void on_assignDefectButton_clicked();
+    void on_logoutButton_clicked();
 
 private:
     Ui::AdminMenuDialog *ui;
-    AddEditDefectMenu *addEditDefectMenu; // Instance of AddEditDefectMenu
+    AddEditDefectMenuDialog *addEditDefectMenu; // Instance of AddEditDefectMenu
 
 };
 

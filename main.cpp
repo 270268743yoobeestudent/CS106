@@ -1,15 +1,15 @@
+#include <QApplication>
+#include <QDebug>
 #include "logindialog.h"
 #include "adminmenudialog.h"
 #include "employeemenudialog.h"
-#include <QApplication>
-#include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     LoginDialog loginDialog;
-    bool isAdmin = false; // Assume employee by default
+    bool isAdmin = false;
 
     // Connect the userLoggedIn signal to set isAdmin when user logs in
     QObject::connect(&loginDialog, &LoginDialog::userLoggedIn, [&](bool loggedInAsAdmin) {

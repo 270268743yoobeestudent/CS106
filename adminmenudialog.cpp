@@ -1,14 +1,15 @@
 #include "adminmenudialog.h"
 #include "adddefectdialog.h"
+#include "editdefectdialog.h"
 #include "ui_adminmenudialog.h"
-#include "addeditdefectmenu.h"
+#include "addeditdefectmenudialog.h"
 #include "addeditprioritydialog.h"
 #include "addprojectdialog.h"
 #include "updatestatusdialog.h"
 #include "createreportdialog.h"
 #include "addemployeedialog.h"
 #include "assigndefectdialog.h"
-#include "editdefectdialog.h" // Include EditDefectDialog header
+#include "logindialog.h"
 #include <QMessageBox>
 
 AdminMenuDialog::AdminMenuDialog(QWidget *parent) :
@@ -25,6 +26,7 @@ AdminMenuDialog::AdminMenuDialog(QWidget *parent) :
     connect(ui->createReportButton, &QPushButton::clicked, this, &AdminMenuDialog::on_createReportButton_clicked);
     connect(ui->addEditEmployeeButton, &QPushButton::clicked, this, &AdminMenuDialog::on_addEditEmployeeButton_clicked);
     connect(ui->assignDefectButton, &QPushButton::clicked, this, &AdminMenuDialog::on_assignDefectButton_clicked);
+    connect(ui->logoutButton, &QPushButton::clicked, this, &AdminMenuDialog::on_logoutButton_clicked);
 }
 
 AdminMenuDialog::~AdminMenuDialog()
@@ -35,7 +37,7 @@ AdminMenuDialog::~AdminMenuDialog()
 void AdminMenuDialog::on_addEditDefectButton_clicked()
 {
     // Example: Show Add/Edit Defect menu dialog
-    AddEditDefectMenu menuDialog;
+    AddEditDefectMenuDialog menuDialog;
     if (menuDialog.exec() == QDialog::Accepted) {
         if (menuDialog.isAddDefectSelected()) {
             // Show Add Defect dialog
@@ -89,4 +91,14 @@ void AdminMenuDialog::on_assignDefectButton_clicked()
     // Example: Show Assign Defect dialog
     AssignDefectDialog assignDialog;
     assignDialog.exec();
+}
+
+void AdminMenuDialog::on_logoutButton_clicked()
+{
+    // Handle logout functionality here
+    close();  // Close the admin menu dialog
+
+    // Show the login dialog
+    LoginDialog loginDialog;
+    loginDialog.exec();
 }

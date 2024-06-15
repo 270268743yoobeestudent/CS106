@@ -29,13 +29,6 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="addProjectButton">
-     <property name="text">
-      <string>Add Project</string>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QPushButton" name="updateDefectStatusButton">
      <property name="text">
       <string>Update Status of Defect</string>
@@ -50,16 +43,30 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="addEditEmployeeButton">
+    <widget class="QPushButton" name="assignDefectButton">
      <property name="text">
-      <string>Add/Edit Employee</string>
+      <string>Assign Defect</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="assignDefectButton">
+    <widget class="QPushButton" name="addEditEmployeeButton">
      <property name="text">
-      <string>Assign Defect</string>
+      <string>Add Employee</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addProjectButton">
+     <property name="text">
+      <string>Add Project</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="logoutButton">
+     <property name="text">
+      <string>Logout</string>
      </property>
     </widget>
    </item>

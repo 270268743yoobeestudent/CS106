@@ -15,9 +15,6 @@ public:
     explicit AddProjectDialog(QWidget *parent = nullptr);
     ~AddProjectDialog();
 
-signals:
-    void projectAdded(const QString &projectName, const QString &projectDescription);
-
 private slots:
     void on_submitButton_clicked();
 

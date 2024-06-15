@@ -10,7 +10,6 @@ CONFIG += c++17
 
 SOURCES += \
     adddefectdialog.cpp \
-    addeditdefectmenu.cpp \
     addeditdefectmenudialog.cpp \
     addeditprioritydialog.cpp \
     addemployeedialog.cpp \
@@ -19,15 +18,14 @@ SOURCES += \
     assigndefectdialog.cpp \
     createreportdialog.cpp \
     editdefectdialog.cpp \
-    editemployeedialog.cpp \
     employeemenudialog.cpp \
+    filemanager.cpp \
     logindialog.cpp \
     main.cpp \
     updatestatusdialog.cpp
 
 HEADERS += \
     adddefectdialog.h \
-    addeditdefectmenu.h \
     addeditdefectmenudialog.h \
     addeditprioritydialog.h \
     addemployeedialog.h \
@@ -36,14 +34,13 @@ HEADERS += \
     assigndefectdialog.h \
     createreportdialog.h \
     editdefectdialog.h \
-    editemployeedialog.h \
     employeemenudialog.h \
+    filemanager.h \
     logindialog.h \
     updatestatusdialog.h
 
 FORMS += \
     adddefectdialog.ui \
-    addeditdefectmenu.ui \
     addeditdefectmenudialog.ui \
     addeditprioritydialog.ui \
     addemployeedialog.ui \
@@ -52,7 +49,6 @@ FORMS += \
     assigndefectdialog.ui \
     createreportdialog.ui \
     editdefectdialog.ui \
-    editemployeedialog.ui \
     employeemenudialog.ui \
     logindialog.ui \
     updatestatusdialog.ui
