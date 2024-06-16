@@ -1,6 +1,6 @@
-#include "addemployeedialog.h"
-#include "ui_addemployeedialog.h"
-#include "filemanager.h"
+#include "AddEmployeeDialog.h"
+#include "ui_AddEmployeeDialog.h"
+#include <QMessageBox> // Include for QMessageBox if needed
 
 AddEmployeeDialog::AddEmployeeDialog(QWidget *parent) :
     QDialog(parent),
@@ -8,7 +8,8 @@ AddEmployeeDialog::AddEmployeeDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->submitButton, &QPushButton::clicked, this, &AddEmployeeDialog::on_submitButton_clicked);
+    // Connect submit button click to onSubmit slot
+    connect(ui->submitButton, &QPushButton::clicked, this, &AddEmployeeDialog::onSubmit);
 }
 
 AddEmployeeDialog::~AddEmployeeDialog()
@@ -16,16 +17,17 @@ AddEmployeeDialog::~AddEmployeeDialog()
     delete ui;
 }
 
-void AddEmployeeDialog::on_submitButton_clicked()
+void AddEmployeeDialog::onSubmit()
 {
-    QString employeeName = ui->employeeNameLineEdit->text().trimmed();
+    QString employeeName = ui->employeeNameLineEdit->text();
 
-    FileManager fileManager("employees.txt");
-    if (fileManager.writeToFile("Employee Name: " + employeeName)) {
-        qDebug() << "Employee name saved successfully:" << employeeName;
-        emit employeeAdded(employeeName);
-        accept(); // Close the dialog
-    } else {
-        qDebug() << "Failed to save employee name:" << employeeName;
-    }
+    // Here you would add the employee to your system
+    // Example: emit a signal to add 'employeeName' to your employee list
+    // You need to implement the actual logic to add an employee in your system
+
+    // For demonstration, show a message box (remove in actual implementation)
+    QMessageBox::information(this, "Employee Added", QString("Employee %1 added.").arg(employeeName));
+
+    // Close the dialog after adding employee
+    accept(); // This closes the dialog and returns QDialog::Accepted
 }

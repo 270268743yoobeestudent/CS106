@@ -15,15 +15,8 @@ public:
     explicit AssignDefectDialog(QWidget *parent = nullptr);
     ~AssignDefectDialog();
 
-public slots:
-    void populateDefectList(const QStringList &defectList);
-    void populateEmployeeList(const QStringList &employeeList);
-
-signals:
-    void defectAssigned(const QString &defect, const QString &employee);
-
 private slots:
-    void on_submitButton_clicked();
+    void onSubmit();
 
 private:
     Ui::AssignDefectDialog *ui;

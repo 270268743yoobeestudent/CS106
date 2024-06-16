@@ -11,7 +11,6 @@ CONFIG += c++17
 SOURCES += \
     adddefectdialog.cpp \
     addeditdefectmenudialog.cpp \
-    addeditprioritydialog.cpp \
     addemployeedialog.cpp \
     addprojectdialog.cpp \
     adminmenudialog.cpp \
@@ -19,15 +18,14 @@ SOURCES += \
     createreportdialog.cpp \
     editdefectdialog.cpp \
     employeemenudialog.cpp \
-    filemanager.cpp \
     logindialog.cpp \
     main.cpp \
+    updateprioritydialog.cpp \
     updatestatusdialog.cpp
 
 HEADERS += \
     adddefectdialog.h \
     addeditdefectmenudialog.h \
-    addeditprioritydialog.h \
     addemployeedialog.h \
     addprojectdialog.h \
     adminmenudialog.h \
@@ -35,14 +33,13 @@ HEADERS += \
     createreportdialog.h \
     editdefectdialog.h \
     employeemenudialog.h \
-    filemanager.h \
     logindialog.h \
+    updateprioritydialog.h \
     updatestatusdialog.h
 
 FORMS += \
     adddefectdialog.ui \
     addeditdefectmenudialog.ui \
-    addeditprioritydialog.ui \
     addemployeedialog.ui \
     addprojectdialog.ui \
     adminmenudialog.ui \
@@ -51,6 +48,7 @@ FORMS += \
     editdefectdialog.ui \
     employeemenudialog.ui \
     logindialog.ui \
+    updateprioritydialog.ui \
     updatestatusdialog.ui
 
 # Default rules for deployment.

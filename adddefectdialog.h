@@ -2,7 +2,6 @@
 #define ADDDEFECTDIALOG_H
 
 #include <QDialog>
-#include <QString>
 
 namespace Ui {
 class AddDefectDialog;
@@ -16,11 +15,8 @@ public:
     explicit AddDefectDialog(QWidget *parent = nullptr);
     ~AddDefectDialog();
 
-signals:
-    void defectAdded(const QString &defectName);
-
 private slots:
-    void on_submitButton_clicked();
+    void onSubmit();
 
 private:
     Ui::AddDefectDialog *ui;

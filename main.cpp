@@ -1,5 +1,4 @@
 #include <QApplication>
-#include <QDebug>
 #include "logindialog.h"
 #include "adminmenudialog.h"
 #include "employeemenudialog.h"
@@ -9,29 +8,23 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     LoginDialog loginDialog;
-    bool isAdmin = false;
-
-    // Connect the userLoggedIn signal to set isAdmin when user logs in
-    QObject::connect(&loginDialog, &LoginDialog::userLoggedIn, [&](bool loggedInAsAdmin) {
-        isAdmin = loggedInAsAdmin;
-    });
-
     if (loginDialog.exec() == QDialog::Accepted) {
+        QString username = loginDialog.getUsername();
+        // Example logic to determine if the user is admin or employee based on username
+        bool isAdmin = (username == "admin");
+
         if (isAdmin) {
-            AdminMenuDialog adminMenu;
-            int result = adminMenu.exec();
-            if (result == QDialog::Rejected) {
-                qDebug() << "Admin menu closed or rejected.";
-            }
+            AdminMenuDialog adminMenuDialog;
+            adminMenuDialog.exec();
         } else {
-            EmployeeMenuDialog employeeMenu;
-            int result = employeeMenu.exec();
-            if (result == QDialog::Rejected) {
-                qDebug() << "Employee menu closed or rejected.";
-            }
+            EmployeeMenuDialog employeeMenuDialog;
+            QObject::connect(&employeeMenuDialog, &EmployeeMenuDialog::logoutRequested, [&loginDialog, &employeeMenuDialog]() {
+                // Close current dialog and show login dialog
+                employeeMenuDialog.close();
+                loginDialog.show();
+            });
+            employeeMenuDialog.exec();
         }
-    } else {
-        qDebug() << "Login dialog closed or rejected.";
     }
 
     return a.exec();

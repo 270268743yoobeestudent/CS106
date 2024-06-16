@@ -1,16 +1,15 @@
 #include "adminmenudialog.h"
-#include "adddefectdialog.h"
-#include "editdefectdialog.h"
 #include "ui_adminmenudialog.h"
 #include "addeditdefectmenudialog.h"
-#include "addeditprioritydialog.h"
+#include "updateprioritydialog.h"
 #include "addprojectdialog.h"
 #include "updatestatusdialog.h"
 #include "createreportdialog.h"
 #include "addemployeedialog.h"
 #include "assigndefectdialog.h"
-#include "logindialog.h"
-#include <QMessageBox>
+#include "editdefectdialog.h"
+#include "adddefectdialog.h"
+#include "logindialog.h" // Assuming you have a LoginDialog
 
 AdminMenuDialog::AdminMenuDialog(QWidget *parent) :
     QDialog(parent),
@@ -26,6 +25,8 @@ AdminMenuDialog::AdminMenuDialog(QWidget *parent) :
     connect(ui->createReportButton, &QPushButton::clicked, this, &AdminMenuDialog::on_createReportButton_clicked);
     connect(ui->addEditEmployeeButton, &QPushButton::clicked, this, &AdminMenuDialog::on_addEditEmployeeButton_clicked);
     connect(ui->assignDefectButton, &QPushButton::clicked, this, &AdminMenuDialog::on_assignDefectButton_clicked);
+
+    // Connect logout button
     connect(ui->logoutButton, &QPushButton::clicked, this, &AdminMenuDialog::on_logoutButton_clicked);
 }
 
@@ -36,14 +37,14 @@ AdminMenuDialog::~AdminMenuDialog()
 
 void AdminMenuDialog::on_addEditDefectButton_clicked()
 {
-    // Example: Show Add/Edit Defect menu dialog
+    // Show Add/Edit Defect menu dialog
     AddEditDefectMenuDialog menuDialog;
     if (menuDialog.exec() == QDialog::Accepted) {
         if (menuDialog.isAddDefectSelected()) {
             // Show Add Defect dialog
             AddDefectDialog addDialog;
             addDialog.exec();
-        } else if (menuDialog.isEditDefectSelected()) {
+        } else {
             // Show Edit Defect dialog
             EditDefectDialog editDialog;
             editDialog.exec();
@@ -53,50 +54,50 @@ void AdminMenuDialog::on_addEditDefectButton_clicked()
 
 void AdminMenuDialog::on_addEditPriorityButton_clicked()
 {
-    // Example: Show Add/Edit Priority of Defect dialog
-    AddEditPriorityDialog priorityDialog;
+    // Show Add/Edit Priority of Defect dialog
+    UpdatePriorityDialog priorityDialog;
     priorityDialog.exec();
 }
 
 void AdminMenuDialog::on_addProjectButton_clicked()
 {
-    // Example: Show Add Project dialog
+    // Show Add Project dialog
     AddProjectDialog projectDialog;
     projectDialog.exec();
 }
 
 void AdminMenuDialog::on_updateDefectStatusButton_clicked()
 {
-    // Example: Show Update Status of Defect dialog
+    // Show Update Status of Defect dialog
     UpdateStatusDialog statusDialog;
     statusDialog.exec();
 }
 
 void AdminMenuDialog::on_createReportButton_clicked()
 {
-    // Example: Show Create Report for Defect Status dialog
+    // Show Create Report for Defect Status dialog
     CreateReportDialog reportDialog;
     reportDialog.exec();
 }
 
 void AdminMenuDialog::on_addEditEmployeeButton_clicked()
 {
-    // Example: Show Add/Edit Employee dialog
+    // Show Add/Edit Employee dialog
     AddEmployeeDialog employeeDialog;
     employeeDialog.exec();
 }
 
 void AdminMenuDialog::on_assignDefectButton_clicked()
 {
-    // Example: Show Assign Defect dialog
+    // Show Assign Defect dialog
     AssignDefectDialog assignDialog;
     assignDialog.exec();
 }
 
 void AdminMenuDialog::on_logoutButton_clicked()
 {
-    // Handle logout functionality here
-    close();  // Close the admin menu dialog
+    // Close the admin menu dialog
+    close();
 
     // Show the login dialog
     LoginDialog loginDialog;

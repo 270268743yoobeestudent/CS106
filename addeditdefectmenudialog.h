@@ -12,22 +12,24 @@ class AddEditDefectMenuDialog : public QDialog
     Q_OBJECT
 
 public:
+    enum Action {
+        AddDefect,
+        EditDefect
+    };
+
     explicit AddEditDefectMenuDialog(QWidget *parent = nullptr);
     ~AddEditDefectMenuDialog();
 
     bool isAddDefectSelected() const;
     bool isEditDefectSelected() const;
 
-private:
-    Ui::AddEditDefectMenuDialog *ui;
-    bool addDefectSelected;
-    bool editDefectSelected;
-
 private slots:
     void on_addDefectButton_clicked();
     void on_editDefectButton_clicked();
-    void saveToFile(const QString &fileName);
-    void loadFromFile(const QString &fileName);
+
+private:
+    Ui::AddEditDefectMenuDialog *ui;
+    bool addDefectSelected;
 };
 
 #endif // ADDEDITDEFECTMENUDIALOG_H

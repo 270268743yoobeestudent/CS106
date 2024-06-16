@@ -15,15 +15,8 @@ public:
     explicit UpdateStatusDialog(QWidget *parent = nullptr);
     ~UpdateStatusDialog();
 
-public slots:
-    void populateDefectList(const QStringList &defectList);
-    void setCurrentStatus(const QString &status);
-
-signals:
-    void statusUpdated(const QString &defect, const QString &status);
-
 private slots:
-    void on_submitButton_clicked();
+    void onSubmit();
 
 private:
     Ui::UpdateStatusDialog *ui;

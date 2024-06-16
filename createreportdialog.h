@@ -15,14 +15,8 @@ public:
     explicit CreateReportDialog(QWidget *parent = nullptr);
     ~CreateReportDialog();
 
-public slots:
-    void populateDefectList(const QStringList &defectList);
-
-signals:
-    void reportRequested(const QString &defect);
-
 private slots:
-    void on_generateReportButton_clicked();
+    void onGenerateReport();
 
 private:
     Ui::CreateReportDialog *ui;

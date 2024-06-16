@@ -1,13 +1,14 @@
-#include "EmployeeMenuDialog.h"
-#include "ui_EmployeeMenuDialog.h"
-#include "addeditdefectmenudialog.h"
-#include "addeditprioritydialog.h"
-#include "loginDialog.h" // Assuming this is your LoginDialog header
+#include "employeemenudialog.h"
+#include "ui_employeemenudialog.h"
+#include "editdefectdialog.h"
+#include "updatestatusdialog.h"
+#include "adddefectdialog.h"
+#include "updateprioritydialog.h" // Include the header file for AddEditPriorityDialog
 
 EmployeeMenuDialog::EmployeeMenuDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EmployeeMenuDialog),
-    loginDialog(new LoginDialog(this)) // Initialize LoginDialog with parent
+    addEditDefectMenu(new AddEditDefectMenuDialog(this))
 {
     ui->setupUi(this);
 
@@ -20,27 +21,32 @@ EmployeeMenuDialog::EmployeeMenuDialog(QWidget *parent) :
 EmployeeMenuDialog::~EmployeeMenuDialog()
 {
     delete ui;
+    delete addEditDefectMenu;
 }
 
 void EmployeeMenuDialog::on_addEditDefectButton_clicked()
 {
-    // Show Add/Edit Defect dialog
-    AddEditDefectMenuDialog addEditDefectMenuDialog;
-    addEditDefectMenuDialog.exec();
+    // Show AddEditDefectMenu and handle its result
+    if (addEditDefectMenu->exec() == QDialog::Accepted) {
+        if (addEditDefectMenu->isAddDefectSelected()) {
+            AddDefectDialog addDialog;
+            addDialog.exec();
+        } else if (addEditDefectMenu->isEditDefectSelected()) {
+            EditDefectDialog editDialog;
+            editDialog.exec();
+        }
+    }
 }
 
 void EmployeeMenuDialog::on_addEditPriorityButton_clicked()
 {
     // Show Add/Edit Priority dialog
-    AddEditPriorityDialog addEditPriorityDialog;
-    addEditPriorityDialog.exec();
+    UpdatePriorityDialog priorityDialog;
+    priorityDialog.exec();
 }
 
 void EmployeeMenuDialog::on_logoutButton_clicked()
 {
-    // Handle logout functionality here
-    close();  // Close the employee menu dialog
-
-    // Show the login dialog
-    loginDialog->exec();
+    // Emit the signal to request logout
+    emit logoutRequested();
 }

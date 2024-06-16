@@ -15,11 +15,8 @@ public:
     explicit AddEmployeeDialog(QWidget *parent = nullptr);
     ~AddEmployeeDialog();
 
-signals:
-    void employeeAdded(const QString &employeeName);
-
 private slots:
-    void on_submitButton_clicked();
+    void onSubmit();
 
 private:
     Ui::AddEmployeeDialog *ui;

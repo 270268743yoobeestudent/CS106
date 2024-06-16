@@ -15,9 +15,6 @@ public:
     explicit AddProjectDialog(QWidget *parent = nullptr);
     ~AddProjectDialog();
 
-private slots:
-    void on_submitButton_clicked();
-
 private:
     Ui::AddProjectDialog *ui;
 };

@@ -2,10 +2,11 @@
 #define LOGINDIALOG_H
 
 #include <QDialog>
+#include <QString>
 
-namespace Ui {
-class LoginDialog;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class LoginDialog; }
+QT_END_NAMESPACE
 
 class LoginDialog : public QDialog
 {
@@ -14,12 +15,13 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
     ~LoginDialog();
-
-signals:
-    void userLoggedIn(bool isAdmin); // Signal for login success
+    QString getUsername() const;
 
 private slots:
-    void on_loginButton_clicked(); // Slot for login button click event
+    void on_loginButton_clicked();
+
+signals:
+    void userLoggedIn(bool isAdmin);
 
 private:
     Ui::LoginDialog *ui;

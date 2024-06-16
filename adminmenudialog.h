@@ -2,11 +2,8 @@
 #define ADMINMENUDIALOG_H
 
 #include <QDialog>
-#include "addeditdefectmenudialog.h"
-
-namespace Ui {
-class AdminMenuDialog;
-}
+#include <QPushButton>
+#include "ui_adminmenudialog.h" // Assuming you have this for UI definition
 
 class AdminMenuDialog : public QDialog
 {
@@ -28,8 +25,6 @@ private slots:
 
 private:
     Ui::AdminMenuDialog *ui;
-    AddEditDefectMenuDialog *addEditDefectMenu; // Instance of AddEditDefectMenu
-
 };
 
 #endif // ADMINMENUDIALOG_H
